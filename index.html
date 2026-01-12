@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        *{
+            font-family: 'poppins',sans-serif;
+            margin: 0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgba(224, 206, 186, 0.774);
+        }
+        #starbucks_logo{
+            width: 51px;
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            font-size: 15px;
+            align-items: center;
+            margin: 28px 8%; 
+        }
+        nav span{
+            font-weight: 611;
+            display: flex;
+            align-items: center;
+        }
+        nav ul{
+            display: flex;
+            gap: 31px;
+            list-style:none;
+        }
+        #bars{
+            display: none;
+        }
+        #mobile{
+            display: none;
+        }
+        #mobile ul{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 21px;
+            list-style: none;
+            color: rgba(19, 126, 60, 0.877);
+            font-weight: 600;
+            font-size: 19px;
+            
+        }
+        #mobile #btn-default{
+            border: none;
+            padding: 11px;
+            background-color: rgba(19, 126, 60, 0.877);
+            color: white;
+            border-radius: 9px;
+            padding: 13px 15px;
+            margin-top: 22px;
+            margin-bottom: 22px;
+        }
+        @media screen and (max-width: 1171px) {
+            nav ul{
+                display: none;
+            }
+            nav button{
+                display: none;
+            }
+            #bars{
+                display: flex;
+                font-size: 22px;
+                color: rgba(5, 70, 29, 0.877);
+            }
+            #mobile.active{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            }
+        }
+
+
+        #btn-default{
+            border: none;
+            padding: 11px;
+            background-color: rgba(19, 126, 60, 0.877);
+            color: white;
+            border-radius: 9px;
+            padding: 13px 15px;
+        }
+
+
+        
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: 
+            url('../HTML/purepng.com-coffee-beanscoffee-beanscoffeestone-fruitpeaberry-1411527241437eo97w.png'),
+            url('../HTML/purepng.com-coffee-beanscoffee-beanscoffeestone-fruitpeaberry-1411527241437eo97w.png');
+            background-repeat: repeat-y, repeat-y;
+            background-position: left, right;
+            background-size: 17%; /*tamanho da imagem */
+            height: 100%;
+        }
+    
+        @media screen and (max-width: 1171px) {
+            main{
+                background-size: 171px;
+            }
+        }
+        @media screen and (max-width: 851px) {
+            main{
+                background-size: 0px;
+            }
+        }
+
+
+        #home{
+            
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 21px;
+        }
+        #cup_circulo{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        #starbucks_cup{
+            width: 251px;
+            z-index: 1;
+        }
+        .circulo{
+            position: absolute;
+            margin-top: 41px;
+            z-index: 0;
+            height: 52%;
+            width: 81%;
+            background-color: rgb(15, 136, 61);
+            border-radius: 500px;
+            box-shadow: 0 0 12px 8px rgba(0,0,0,0.2);
+
+        }
+        #home h1{
+            max-width: 700px;
+            font-size: clamp(3rem, 5vw, 4.3rem);
+            text-align: center;
+            span{
+                 color: rgb(15, 136, 61);
+            }
+        }
+        #home p{
+            color: rgb(0, 0, 0);
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 499;
+            max-width: 599px;
+        }
+        #home #cta{
+            display: flex;
+            gap: 45px;
+        }
+
+        #em_alta{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 171px 4% 32px 4%;
+        }
+        #em_alta h1{
+            font-size: 3rem;
+            margin-bottom: 31px;
+            position: relative;
+
+            &::before{
+                content: '';
+                display: block;
+                width: 61px;
+                height: 4px;
+                background-color: rgb(15, 136, 61);
+                position: absolute;
+                bottom: 0;
+                border-radius: 31px;
+            }
+            
+        }
+        #cards{
+            display: flex;
+            gap: 91px;
+            
+        }
+        @media screen and (max-width: 1171px) {
+            #cards{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        #card1,#card2,#card3{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        #card_images{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            align-items: center;
+            width: 300px; /* largura fixa pra todos */
+            height: 300px; /* altura fixa pra alinhar */
+        }
+        #cup_image1{
+            z-index: 2;
+            width:151px;
+        }
+        #cup_image2{
+            z-index: 2;
+            width:261px;
+        }
+        #cup_image3{
+            z-index: 2;
+            width:291px;
+        }
+        #circulo1{
+            background-color: rgb(170, 131, 73);
+            height: 151px;
+            width: 151px;
+        }
+        #circulo2{
+            background-color: rgb(96, 170, 73);
+            height: 151px;
+            width: 151px;
+        }
+        #circulo3{
+            background-color: rgb(241, 116, 178);
+            height: 151px;
+            width: 151px;
+        }
+        @media screen and (max-width: 1171px) {
+            #circulo1,#circulo2,#circulo3{
+            
+            height: 191px;
+            width: 191px;
+        }
+        }
+        #cup_background{
+            width: 251px;
+            position: absolute;
+            z-index: 1;
+        }
+        #cup_background3{
+            width: 171px;
+            position: absolute;
+            z-index: 1;
+            border-radius: 111px;
+        }
+        #estrelas{
+            z-index: 3;
+            background-color: white;
+            position: absolute;
+            right: -11px;
+            bottom: 0;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        #estrelas i{
+            color: gold;
+        }
+        #sobre_nos{
+            position: relative;
+            margin: 222px;
+            padding: 51px 1% 111px 1%;
+            width: 1111px;
+            border-radius: 21px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(19, 126, 60, 0.877);
+            position: relative; /* NECESSÁRIO */
+            overflow: hidden; /* impede o café de vazar para fora */
+            color: white;
+        }
+        #sobre_nos::before{
+            content: "";
+            position: absolute;
+            background-color: rgb(11, 44, 16);
+            inset: 0; /* cobre o container inteiro */
+            mask-image: url('../HTML/purepng.com-coffee-beanscoffee-beanscoffeestone-fruitpeaberry-1411527241437eo97w.png');
+            -webkit-mask-image: url("../HTML/purepng.com-coffee-beanscoffee-beanscoffeestone-fruitpeaberry-1411527241437eo97w.png");
+            mask-repeat: repeat;
+            -webkit-mask-repeat: repeat;
+            mask-size: 181px;
+            -webkit-mask-size: 180px;
+            opacity: 0.2; /* controla a intensidade da imagem */
+            z-index: 0; /* fica atrás */
+
+        }
+        #sobre_nos * {
+            position: relative;
+            z-index: 1;
+        }
+        #sobre_nos h1{
+
+            margin-bottom: 352px;
+
+            &::before{
+                content: '';
+                display: block;
+                width: 61px;
+                height: 4px;
+                background-color: rgb(206, 197, 69);
+                position: absolute;
+                bottom: 0;
+                border-radius: 31px;
+            }
+        }
+        #description{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 151px;
+        }
+        #sobre_nos h2{
+            display: flex;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+        }
+        #description_card{
+            margin: 0 10px;
+            background-color: rgba(15, 105, 49, 0.877);
+            border-radius: 19px;
+            padding:12px;
+        }
+        #description_card h3{
+            margin-top: 12px;
+            font-size: 22px;
+            span{
+                color: rgb(206, 197, 69);
+            }
+        }
+        #description_card p{
+            margin-top: 12px;
+        }
+        #sobre_nos img{
+            width: 222px;
+            position: absolute;
+        }
+        @media screen and (max-width: 1171px) {
+            #sobre_nos img{
+                display: none;
+            }
+            #description{
+                gap: 21px;
+                flex-direction: column;
+            }
+
+            #sobre_nos{
+            position: relative;
+            margin: 222px;
+            padding: 51px 1% 111px 1%;
+            width: 611px;
+            border-radius: 21px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(19, 126, 60, 0.877);
+            position: relative; /* NECESSÁRIO */
+            overflow: hidden; /* impede o café de vazar para fora */
+            color: white;
+            }
+            #sobre_nos h1{
+                margin-bottom: 451px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <span>
+            <img id="starbucks_logo" src="starbucks_PNG8.png" alt="">
+            STARBUCKS
+        </span>
+        <ul>
+            <li>home</li>
+            <li>Em alta</li>
+            <li>Sobre nos</li>
+            <li>Novidades</li>
+        </ul>
+        <button id="btn-default">
+            Contatar
+        </button>
+        <a id="bars"  class="fa-solid fa-bars"></a>
+    </nav>
+    <div id="mobile">
+        <ul>
+            <li>HOME</li>
+            <li>EM ALTA</li>
+            <li>SOBRE NOS</li>
+            <li>NOVIDADES</li>
+        </ul>
+        <button id="btn-default">
+            Contatar
+        </button>
+    </div>
+    <main>
+        <section id="home">
+            <div id="cup_circulo">
+                <img id="starbucks_cup" src="Starbucks-PNG-File.png" alt="">
+                <div class="circulo"></div>
+            </div>
+            <h1>MAIS QUE CAFÉ, UMA <span>EXPERIENCIA.</span></h1>
+            <p>Descubra cafés icônicos, sabores únicos e a energia perfeita para cada parte do seu dia</p>
+            <div id="cta">
+                <button id="btn-default">Conhecer</button>
+                <button id="btn-default" class="">Contatar</button>
+            </div>
+        </section>
+        <section id="em_alta">
+            <h1>EM ALTA</h1>
+            <div id="barra"></div>
+            <div id="cards">
+
+                <div id="card1">
+                    <div id="card_images">
+                        <div class="circulo" id="circulo1"></div>
+                        <img id="cup_image1" src="starbucks-transparent-background-4.png" alt="">
+                        <img id="cup_background" src="coffee-splash-isolated-on-a-transparent-background-free-png.webp" alt="">
+                        <div id="estrelas">
+                            <p>5 <i class="fa-solid fa-star"></i></p>
+                        </div>
+                    </div>
+    
+                    <h2>Frappuccino</h2>
+                    <p>Avela</p>
+                    
+                </div>
+                <div id="card2">
+                    <div id="card_images">
+                        <div class="circulo" id="circulo2"></div>
+                        <img id="cup_image2" src="Starbucks-Cup-PNG-Free-Image.png" alt="">
+                        <img id="cup_background" src="pistachio-with-leaf-isolated-on-transparent-background-file-cut-out-ai-generated-png.png" alt="">
+                        <div id="estrelas">
+                            <p>5 <i class="fa-solid fa-star"></i></p>
+                        </div>
+                    </div>
+    
+                    <h2>Frappuccino</h2>
+                    <p>Pistache</p>
+                    
+                </div>
+                <div id="card3">
+                    <div id="card_images">
+                        <div class="circulo" id="circulo3"></div>
+                        <img id="cup_image3" src="Starbucks-Coffee-PNG-Free-Download.png" alt="">
+                        <img id="cup_background3" src="Splash-Strawberry-PNG-High-Quality-Image.png" alt="">
+                        <div id="estrelas">
+                            <p>5 <i class="fa-solid fa-star"></i></p>
+                        </div>
+                    </div>
+    
+                    <h2>Frappuccino</h2>
+                    <p>Morango</p>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre_nos">
+            <h1>SOBRE NÓS</h1>
+            <div id="description">
+                <div id="description_card">
+                    <h3>Nossa <span>História</span></h3>
+                    <p>Desde o início, nossa paixão pelo café nos inspira a oferecer experiências únicas em cada xícara.
+                        Com grãos selecionados e preparo artesanal, buscamos unir qualidade, sabor e acolhimento em um só lugar.
+                        Aqui, cada detalhe é pensado para transformar o seu momento de café em algo especial.</p>
+                </div>
+                <div>
+                    
+                </div>
+                
+                
+                
+                <div id="description_card">
+                    <h3>Nosso <span>Propósito</span></h3>
+                    <p>Inspirar momentos de conexão e bem-estar por meio do café.
+                        Acreditamos que cada xícara pode aproximar pessoas, despertar ideias e transformar rotinas.
+                        Nosso compromisso é oferecer qualidade, sustentabilidade e experiências que tornem o seu dia mais leve e especial.</p>
+                </div>
+            </div>
+            <img id="sobre_nos_img" src="starbucks_PNG8.png">
+            <img id="sobre_nos_img" src="Starbucks-PNG-File.png">
+        </section>
+    </main>
+
+
+    <script>
+        $(document).ready(function(){
+            $('#bars').on('click',function(){
+                $('#mobile').toggleClass('active');
+                $('#bars').toggleClass('fa-solid fa-x');
+            });
+        })
+    </script>
+</body>
+</html>
